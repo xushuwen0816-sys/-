@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>直觉引导与深度疗愈 | 塔罗占卜</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Added more weights for Noto Serif SC to prevent thinness on high-res displays -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'mystic-cream': '#F7F3E8',
+              'parchment': '#EFE6D5',
+              'ink-black': '#1A1A1A',
+              'forest-dark': '#1C2E24',
+              'moss-green': '#4A5D44',
+              'muted-rose': '#C08484',
+              'terracotta': '#A65D48',
+              'antique-gold': '#C5A059',
+              'gold-dim': '#9C7C3E',
+            },
+            fontFamily: {
+              // Decorative for large English display titles
+              'decorative': ['"Cinzel Decorative"', 'cursive'],
+              // Serif for Titles and Accents (Chinese + English fallback)
+              'serif': ['"Noto Serif SC"', 'serif'],
+              // Sans for Body and Descriptions (iOS preferred stack)
+              'sans': ['system-ui', '-apple-system', '"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', 'sans-serif'],
+            },
+            backgroundImage: {
+              'grain': "url('https://www.transparenttextures.com/patterns/stardust.png')",
+            },
+            boxShadow: {
+              'soft-glow': '0 0 40px -10px rgba(197, 160, 89, 0.3)',
+              'deep': '0 20px 25px -5px rgba(28, 46, 36, 0.4), 0 10px 10px -5px rgba(28, 46, 36, 0.2)',
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #1C2E24;
+        color: #1A1A1A;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .text-balance {
+        text-wrap: balance;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1C2E24;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4A5D44;
+        border-radius: 4px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
