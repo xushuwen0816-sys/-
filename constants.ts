@@ -13,8 +13,8 @@ export const SERVICES: ServicePackage[] = [
   {
     title: "🔍 现状解析",
     price: "¥59.9",
-    cardCount: "3-5张牌阵",
-    description: "看感情发展、对方想法或事业运势。通过经典牌阵，为你解读当下的能量状态与近景趋势。",
+    cardCount: "3-5张牌",
+    description: "看感情发展、对方想法、事业运势等。通过经典牌阵，为你解读当下的能量状态与近景趋势。",
     iconType: 'cards'
   },
   {
