@@ -20,6 +20,20 @@ export default function App() {
       {/* The "Paper" Container */}
       <main className="relative w-full max-w-[800px] bg-parchment bg-grain shadow-deep rounded-sm overflow-hidden flex flex-col">
         
+        {/* --- Background Hero Image (New) --- */}
+        {/* Changed h-[650px] to h-[750px] to allow more vertical space for portrait images */}
+        <div className="absolute top-0 left-0 w-full h-[750px] z-0 pointer-events-none select-none">
+          <img 
+            src="https://i.pinimg.com/736x/22/43/d9/2243d9ecfe12029593b8da64c70ad53c.jpg" 
+            alt="Mystic Background" 
+            // Changed object-cover to object-contain to show the full image composition (crystals + card)
+            className="w-full h-full object-contain opacity-85 mix-blend-multiply" 
+            style={{ objectPosition: 'center top' }}
+          />
+          {/* Gradient Overlay for Fade Effect */}
+          <div className="absolute inset-0 bg-gradient-to-b from-parchment/10 via-parchment/50 to-parchment"></div>
+        </div>
+
         {/* --- Ornamental Border Frame --- */}
         <div className="absolute inset-0 pointer-events-none z-20">
           <div className="absolute inset-2 border-2 border-forest-dark/10"></div>
@@ -34,65 +48,41 @@ export default function App() {
         <div className="relative z-10 p-6 sm:p-12 lg:p-16 flex flex-col items-center">
           
           {/* 1. Header Area */}
-          <header className="text-center w-full mb-10 relative">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 opacity-20 text-antique-gold">
-               <MysticalEye className="w-24 h-16" />
+          {/* Reduced mb-8 to mb-6 for tighter spacing */}
+          <header className="text-center w-full mb-6 relative mt-8 sm:mt-12">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-12 opacity-30 text-forest-dark mix-blend-multiply">
+               <MysticalEye className="w-32 h-24" />
             </div>
             
-            <div className="flex justify-center items-center gap-3 mb-4 text-antique-gold/80">
+            <div className="flex justify-center items-center gap-3 mb-6 text-forest-dark/70">
               <StarSparkle className="w-4 h-4 text-terracotta" delay="0.5s" />
               <MoonPhase className="scale-75" />
               <StarSparkle className="w-4 h-4 text-terracotta" delay="1s" />
             </div>
 
-            {/* Fixed H1: Updated Typography adjustments */}
-            <h1 className="font-serif text-forest-dark leading-[1.2] mb-4 drop-shadow-sm font-bold">
-              {/* Changed to Uppercase, removed italic, and reduced weight to fix overlap issues */}
-              <span className="block text-xl sm:text-3xl mb-1 text-moss-green tracking-widest font-decorative font-bold">THE MYSTIC</span>
-              {/* Increased mobile font size to text-3xl as requested */}
-              <span className="whitespace-nowrap text-3xl sm:text-5xl lg:text-6xl">
+            {/* Fixed H1 */}
+            <h1 className="font-serif text-forest-dark leading-[1.2] mb-6 drop-shadow-sm font-bold relative">
+              <span className="block text-xl sm:text-3xl mb-2 text-moss-green tracking-widest font-decorative font-bold">THE MYSTIC</span>
+              <span className="whitespace-nowrap text-3xl sm:text-5xl lg:text-6xl text-forest-dark drop-shadow-md">
                 直觉引导 <span className="text-terracotta mx-1 font-decorative font-normal">&</span> 深度疗愈
               </span>
             </h1>
 
-            {/* Decreased font size for the quote */}
-            <p className="font-serif text-base sm:text-lg text-ink-black/80 italic max-w-lg mx-auto leading-relaxed border-t border-b border-antique-gold/30 py-3 mt-4 font-bold">
+            {/* Quote: Reduced margin-top (mt-4) and vertical padding */}
+            <p className="font-serif text-base sm:text-lg text-ink-black/80 italic max-w-lg mx-auto leading-relaxed border-t border-b border-antique-gold/40 py-3 mt-4 font-bold relative bg-parchment/40 backdrop-blur-[1px] rounded-sm">
+              <StarSparkle className="absolute -left-4 top-1/2 -translate-y-1/2 w-3 h-3 text-antique-gold" />
               "你是自己命运的编剧，而我是为你读剧本的人"
+              <StarSparkle className="absolute -right-4 top-1/2 -translate-y-1/2 w-3 h-3 text-antique-gold" delay="1.5s" />
             </p>
           </header>
 
-          {/* 2. Hero Visual (Arch Shape) */}
-          {/* Reduced bottom margin from mb-12 to mb-6 to tighten spacing */}
-          {/* Strictly set aspect ratio to aspect-square (1:1) as requested */}
-          <div className="relative w-full max-w-md aspect-square mb-6 group">
-            {/* Outline Border */}
-            <div className="absolute inset-0 border-[6px] border-double border-antique-gold/30 rounded-t-full rounded-b-lg transform translate-x-2 translate-y-2"></div>
-            
-            {/* Main Visual Container */}
-            <div className="relative w-full h-full rounded-t-full rounded-b-lg overflow-hidden border border-forest-dark/20 shadow-md bg-[#E8E1D1]">
-              
-              <img 
-                src="https://i.pinimg.com/736x/22/43/d9/2243d9ecfe12029593b8da64c70ad53c.jpg" 
-                alt="Vintage Mystic Collage" 
-                className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-[2000ms] sepia-[.2]"
-              />
-              
-              {/* Overlay Text */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-forest-dark via-forest-dark/60 to-transparent pt-16 pb-4 px-4 text-center z-10">
-                 <p className="text-mystic-cream font-decorative tracking-widest text-sm uppercase opacity-90 font-bold">Unveil the Truth</p>
-              </div>
-            </div>
-
-            <StarSparkle className="absolute -top-4 -right-2 text-antique-gold w-8 h-8 opacity-80" />
-            <StarSparkle className="absolute bottom-8 -left-4 text-terracotta w-6 h-6 opacity-60" delay="2s" />
-          </div>
-
-          <Divider />
+          {/* Reduced margin below divider (mb-2) */}
+          <Divider className="mb-2 opacity-80" />
 
           {/* 3. Services Grid */}
           <section className="w-full mb-8">
-            {/* Reduced bottom margin from mb-10 to mb-6 to tighten spacing */}
-            <div className="flex items-center justify-center gap-3 mb-6">
+            {/* Reduced margin bottom (mb-4) */}
+            <div className="flex items-center justify-center gap-3 mb-4">
                <span className="h-[1px] w-8 bg-forest-dark/40"></span>
                <h2 className="font-serif text-2xl sm:text-3xl text-forest-dark tracking-wide font-bold">占卜套餐</h2>
                <span className="h-[1px] w-8 bg-forest-dark/40"></span>

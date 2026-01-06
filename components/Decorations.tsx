@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const Divider: React.FC<{ className?: string }> = ({ className = "" }) => (
-  // Reduced py-8 to py-4 to decrease vertical whitespace
-  <div className={`flex items-center justify-center opacity-60 py-4 ${className}`}>
+  // Reduced py-4 to py-2 for tighter spacing
+  <div className={`flex items-center justify-center opacity-60 py-2 ${className}`}>
     <div className="h-[1px] bg-moss-green w-1/6 opacity-50"></div>
     <span className="mx-2 text-moss-green">✦</span>
     <div className="h-[1px] bg-moss-green w-1/3"></div>
