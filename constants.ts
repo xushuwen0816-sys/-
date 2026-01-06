@@ -58,8 +58,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 export const NOTICES: NoticeItem[] = [
   {
-    title: "三不测",
-    content: "不测生死疾病、法律诉讼、投机赌博。"
+    title: "五不测",
+    content: "不测生死疾病、法律诉讼、投机赌博、他人隐私及违反公序良俗之问。"
   },
   {
     title: "专注当下",

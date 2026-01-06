@@ -129,17 +129,22 @@ export default function App() {
              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-terracotta via-antique-gold to-terracotta"></div>
              
              <div className="flex flex-col items-center mb-6">
-               <AlertTriangle className="text-antique-gold mb-2 w-6 h-6" strokeWidth={1.5} />
-               <h3 className="font-serif text-xl tracking-widest text-antique-gold font-bold">注意事项</h3>
+               {/* Increased icon size from w-6 h-6 to w-8 h-8 */}
+               <AlertTriangle className="text-antique-gold mb-2 w-8 h-8" strokeWidth={1.5} />
+               {/* Increased title font size from text-xl to text-2xl sm:text-3xl */}
+               <h3 className="font-serif text-2xl sm:text-3xl tracking-widest text-antique-gold font-bold">注意事项</h3>
              </div>
 
              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
                 {NOTICES.map((notice, i) => (
                    <div key={i} className="flex gap-3 items-start">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0"></div>
+                      {/* Increased bullet point size and top margin */}
+                      <div className="mt-2 w-2 h-2 rounded-full bg-terracotta shrink-0"></div>
                       <div>
-                        <span className="font-bold text-mystic-cream font-serif block text-sm mb-1">{notice.title}</span>
-                        <p className="text-xs sm:text-sm text-mystic-cream/90 font-sans leading-relaxed font-medium">{notice.content}</p>
+                        {/* Increased item title size from text-sm to text-base sm:text-lg */}
+                        <span className="font-bold text-mystic-cream font-serif block text-base sm:text-lg mb-1">{notice.title}</span>
+                        {/* Increased content text size from text-xs sm:text-sm to text-sm sm:text-base */}
+                        <p className="text-sm sm:text-base text-mystic-cream/90 font-sans leading-relaxed font-medium">{notice.content}</p>
                       </div>
                    </div>
                 ))}
