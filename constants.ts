@@ -4,11 +4,12 @@ export const WECHAT_ID = "O_oyuh";
 
 export const SERVICES: ServicePackage[] = [
   {
-    title: "✨ 简易指引",
+    title: "✨ 极简指引",
     price: "¥29.9",
     cardCount: "3-5张牌",
     description: "针对【单一是非题】或【二选一】。快速给出一个倾向性结论，不涉及深度分析。",
-    iconType: 'lightbulb'
+    iconType: 'lightbulb',
+    isLite: true
   },
   {
     title: "🔍 现状解析",

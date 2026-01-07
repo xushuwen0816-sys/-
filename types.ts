@@ -4,6 +4,7 @@ export interface ServicePackage {
   cardCount: string;
   description: string;
   iconType: 'star' | 'compass' | 'cards' | 'lightbulb';
+  isLite?: boolean;
 }
 
 export interface ProcessStep {

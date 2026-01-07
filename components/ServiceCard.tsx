@@ -85,59 +85,87 @@ const SpreadDiagram: React.FC<{ type: string; className?: string }> = ({ type, c
 };
 
 export const ServiceCard: React.FC<{ service: ServicePackage; index: number }> = ({ service, index }) => {
+  // Logic for dynamic styling
+  const isLite = service.isLite;
+
+  // Background and Border logic
+  let containerClasses = "";
+  if (isLite) {
+    // Lite: muted background, dashed border, no shadow
+    containerClasses = "bg-parchment/40 border border-dashed border-stone-400/30 shadow-none hover:bg-parchment/60";
+  } else {
+    // Standard (Ultimate Overview): regular cream bg, green border
+    containerClasses = "bg-mystic-cream border border-moss-green/20 shadow-sm hover:shadow-lg";
+  }
+
+  // Text Color Logic
+  const titleColor = isLite ? "text-stone-600" : "text-forest-dark";
+  const priceColor = isLite ? "text-stone-500" : "text-terracotta";
+  const iconColor = isLite ? "text-stone-400" : "text-forest-dark group-hover:text-terracotta";
+  const descriptionColor = isLite ? "text-ink-black/60" : "text-ink-black/90";
+  const metaColor = isLite ? "text-stone-400" : "text-moss-green";
+
   return (
     <div className="group relative h-full font-sans">
-      {/* Background Decor */}
-      <div className="absolute -inset-0.5 bg-gradient-to-br from-antique-gold/20 to-transparent rounded-lg blur-[1px] opacity-0 group-hover:opacity-100 transition duration-700"></div>
+      {/* Background Decor - Disable for lite to keep it clean */}
+      {!isLite && (
+        <div className="absolute -inset-0.5 bg-gradient-to-br from-antique-gold/20 to-transparent rounded-lg blur-[1px] opacity-0 group-hover:opacity-100 transition duration-700"></div>
+      )}
       
-      <div className="relative h-full bg-mystic-cream border border-moss-green/20 p-5 rounded-sm shadow-sm hover:shadow-lg transition-all duration-500 flex flex-col items-center text-center overflow-hidden">
+      <div className={`relative h-full p-5 rounded-sm transition-all duration-500 flex flex-col items-center text-center overflow-hidden ${containerClasses}`}>
         
-        {/* Top Decoration */}
-        <div className="w-full flex justify-center mb-3 opacity-30">
+        {/* Top Decoration - Hide for lite */}
+        <div className={`w-full flex justify-center mb-3 ${isLite ? 'opacity-10' : 'opacity-30'}`}>
           <div className="w-1/2 h-[1px] bg-gradient-to-r from-transparent via-moss-green to-transparent"></div>
         </div>
 
         {/* Spread Diagram Area */}
         <div className="relative w-16 h-16 mb-4 flex items-center justify-center">
-          {/* Rotating frame (optional, simplified) */}
-          <div className="absolute inset-0 border border-antique-gold/20 rounded-full transform rotate-45 group-hover:rotate-180 transition-transform duration-1000"></div>
+          {/* Rotating frame (optional, simplified) - Hide for lite */}
+          {!isLite && (
+            <div className="absolute inset-0 border border-antique-gold/20 rounded-full transform rotate-45 group-hover:rotate-180 transition-transform duration-1000"></div>
+          )}
           
           {/* The Visual Diagram */}
           <SpreadDiagram 
             type={service.iconType} 
-            className="w-12 h-12 text-forest-dark group-hover:text-terracotta transition-colors duration-300 relative z-10" 
+            className={`w-12 h-12 transition-colors duration-300 relative z-10 ${iconColor} ${isLite ? 'opacity-80' : ''}`}
           />
         </div>
 
         {/* Content */}
-        <h3 className="font-serif text-lg font-bold text-forest-dark mb-1 leading-tight tracking-wide">
+        <h3 className={`font-serif text-lg font-bold mb-1 leading-tight tracking-wide ${titleColor}`}>
           {service.title}
         </h3>
         
-        <span className="text-xs font-serif italic text-moss-green mb-3 block font-medium">
+        <span className={`text-xs font-serif italic mb-3 block font-medium ${metaColor}`}>
           ✦ {service.cardCount} ✦
         </span>
 
-        <p className="font-sans text-ink-black/90 text-sm leading-relaxed mb-6 flex-grow text-balance font-normal">
+        <p className={`font-sans text-sm leading-relaxed mb-6 flex-grow text-balance font-normal ${descriptionColor}`}>
           {service.description}
         </p>
 
         {/* Price Tag */}
-        <div className="relative mt-auto w-full pt-4 border-t border-moss-green/10">
-          <span className="font-serif text-xl font-bold text-terracotta">
+        <div className={`relative mt-auto w-full pt-4 border-t ${isLite ? 'border-stone-300/30' : 'border-moss-green/10'}`}>
+          <span className={`font-serif text-xl font-bold ${priceColor} ${isLite ? 'text-lg' : ''}`}>
             {service.price}
           </span>
           {/* Card number identifier */}
-          <span className="absolute bottom-0 right-0 text-[10px] text-moss-green/50 font-sans font-medium">
+          <span className={`absolute bottom-0 right-0 text-[10px] font-sans font-medium ${isLite ? 'text-stone-300' : 'text-moss-green/50'}`}>
             NO. {index + 1}
           </span>
         </div>
 
-        {/* Corner Accents */}
-        <div className="absolute top-1 left-1 w-2 h-2 border-l border-t border-moss-green/30"></div>
-        <div className="absolute top-1 right-1 w-2 h-2 border-r border-t border-moss-green/30"></div>
-        <div className="absolute bottom-1 left-1 w-2 h-2 border-l border-b border-moss-green/30"></div>
-        <div className="absolute bottom-1 right-1 w-2 h-2 border-r border-b border-moss-green/30"></div>
+        {/* Corner Accents - Hide for Lite */}
+        {!isLite && (
+          <>
+            <div className="absolute top-1 left-1 w-2 h-2 border-l border-t border-moss-green/30"></div>
+            <div className="absolute top-1 right-1 w-2 h-2 border-r border-t border-moss-green/30"></div>
+            <div className="absolute bottom-1 left-1 w-2 h-2 border-l border-b border-moss-green/30"></div>
+            <div className="absolute bottom-1 right-1 w-2 h-2 border-r border-b border-moss-green/30"></div>
+          </>
+        )}
       </div>
     </div>
   );
