@@ -121,10 +121,8 @@ export const ServiceCard: React.FC<{ service: ServicePackage; index: number }> =
 
         {/* Spread Diagram Area */}
         <div className="relative w-16 h-16 mb-4 flex items-center justify-center">
-          {/* Rotating frame (optional, simplified) - Hide for lite */}
-          {!isLite && (
-            <div className="absolute inset-0 border border-antique-gold/20 rounded-full transform rotate-45 group-hover:rotate-180 transition-transform duration-1000"></div>
-          )}
+          {/* Rotating frame (Restored for Lite, adapted color) */}
+          <div className={`absolute inset-0 border rounded-full transform rotate-45 group-hover:rotate-180 transition-transform duration-1000 ${isLite ? 'border-stone-400/20' : 'border-antique-gold/20'}`}></div>
           
           {/* The Visual Diagram */}
           <SpreadDiagram 
